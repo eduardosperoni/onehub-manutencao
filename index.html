@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onehub | novo site em construção</title>
+<meta name="description" content="O site da Onehub está sendo reconstruído. Os projetos, cases e bastidores seguem no Instagram @onehub.company.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://onehub.company/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Onehub | novo site em construção">
+<meta property="og:description" content="Nova fase, site novo a caminho. Até lá, acompanhe pelo Instagram @onehub.company.">
+<meta property="og:url" content="https://onehub.company/">
+<meta property="og:image" content="https://onehub.company/logo-onehub-marfim.png">
+<meta name="theme-color" content="#12281A">
+<link rel="icon" href="logo-onehub-marfim.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#12281A;
+    --verde-tonal:#1B3021;
+    --grafite:#2B302E;
+    --marfim:#F3EFE5;
+    --champagne:#C9A45C;
+    --coral:#C15A33;
+    --marfim-88:rgba(243,239,229,.88);
+    --marfim-60:rgba(243,239,229,.62);
+    --marfim-38:rgba(243,239,229,.38);
+    --marfim-14:rgba(243,239,229,.14);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    min-height:100svh;
+    background:var(--verde);
+    color:var(--marfim);
+    font-family:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* o símbolo em escala grande e cortado, como estrutura de página */
+  .grafismo{
+    position:fixed;
+    top:50%;
+    right:-13vw;
+    transform:translateY(-50%);
+    width:min(58vw,720px);
+    height:auto;
+    color:var(--verde-tonal);
+    z-index:0;
+    pointer-events:none;
+  }
+
+  .folha{
+    position:relative;
+    z-index:1;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:52px clamp(24px,7vw,96px) 0;
+  }
+
+  .assinatura{
+    width:clamp(148px,17vw,206px);
+    height:auto;
+    display:block;
+    margin-bottom:clamp(56px,9vh,96px);
+  }
+
+  .sobrelinha{
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--champagne);
+    margin:0 0 26px;
+  }
+
+  h1{
+    font-size:clamp(33px,5.6vw,62px);
+    font-weight:700;
+    line-height:1.06;
+    letter-spacing:-.025em;
+    margin:0;
+    max-width:15ch;
+  }
+
+  .filete{
+    width:64px;
+    height:3px;
+    background:var(--coral);
+    border:0;
+    margin:32px 0 30px;
+  }
+
+  .texto{
+    font-size:clamp(19px,2.1vw,25px);
+    font-weight:500;
+    line-height:1.45;
+    letter-spacing:-.01em;
+    color:var(--marfim-88);
+    max-width:24ch;
+    margin:0 0 36px;
+  }
+
+  .acao{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    align-self:flex-start;
+    font-size:15px;
+    font-weight:600;
+    color:var(--verde);
+    background:var(--marfim);
+    text-decoration:none;
+    padding:17px 30px;
+    border-radius:2px;
+    transition:background-color .2s ease, color .2s ease;
+  }
+  .acao:hover,.acao:focus-visible{background:var(--champagne);color:var(--verde)}
+  .acao svg{width:19px;height:19px;flex:none}
+
+  .rodape{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:clamp(48px,8vh,88px) clamp(24px,7vw,96px) 44px;
+  }
+  .rodape-linha{
+    border-top:1px solid var(--marfim-14);
+    padding-top:22px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:12px 22px;
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  .rodape-linha a{color:var(--marfim-60);text-decoration:none;transition:color .2s ease}
+  .rodape-linha a:hover,.rodape-linha a:focus-visible{color:var(--marfim)}
+  .traco{width:20px;height:1px;background:var(--coral);flex:none}
+  .local{color:var(--marfim-38);margin-left:auto}
+
+  a:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+
+  /* entrada única, sem laço */
+  .sobe{opacity:0;transform:translateY(12px);animation:sobe .78s cubic-bezier(.22,.61,.36,1) forwards}
+  .d1{animation-delay:.05s} .d2{animation-delay:.16s} .d3{animation-delay:.26s}
+  .d4{animation-delay:.36s} .d5{animation-delay:.46s} .d6{animation-delay:.58s}
+  @keyframes sobe{to{opacity:1;transform:none}}
+
+  @media (max-width:760px){
+    .grafismo{right:-32vw;width:96vw;opacity:.9}
+    .folha{padding-top:44px}
+    .acao{align-self:stretch;justify-content:center}
+    .local{margin-left:0;width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .sobe{opacity:1;transform:none;animation:none}
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- símbolo da marca: dois postes de três nós e um nó central, geometria preservada -->
+<svg class="grafismo" viewBox="0 0 295 324" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="6">
+    <line x1="61" y1="52" x2="38.5" y2="161.5"/>
+    <line x1="38.5" y1="161.5" x2="59.5" y2="271"/>
+    <line x1="38.5" y1="161.5" x2="145" y2="161"/>
+    <line x1="145" y1="161" x2="254.5" y2="161.5"/>
+    <line x1="236" y1="52.5" x2="254.5" y2="161.5"/>
+    <line x1="254.5" y1="161.5" x2="234" y2="270.5"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="61" cy="52" r="51.5"/>
+    <circle cx="38.5" cy="161.5" r="39"/>
+    <circle cx="59.5" cy="271" r="51"/>
+    <circle cx="145" cy="161" r="39"/>
+    <circle cx="236" cy="52.5" r="51.8"/>
+    <circle cx="254.5" cy="161.5" r="39"/>
+    <circle cx="234" cy="270.5" r="51.8"/>
+  </g>
+</svg>
+
+<main class="folha">
+  <img class="assinatura sobe d1" src="logo-onehub-marfim.png" alt="Onehub" width="1256" height="324">
+
+  <p class="sobrelinha sobe d2">Hub de inteligência criativa e estratégica</p>
+
+  <h1 class="sobe d3">Nosso site está sendo reconstruído.</h1>
+
+  <hr class="filete sobe d4">
+
+  <p class="texto sobe d5">Acompanha a gente no Instagram.</p>
+
+  <a class="acao sobe d6" href="https://www.instagram.com/onehub.company/" target="_blank" rel="noopener" aria-label="Abrir o Instagram da Onehub, perfil arroba onehub ponto company">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+      <circle cx="12" cy="12" r="4.2"/>
+      <circle cx="17.7" cy="6.3" r="1.1" fill="currentColor" stroke="none"/>
+    </svg>
+    @onehub.company
+  </a>
+</main>
+
+<footer class="rodape">
+  <div class="rodape-linha sobe d6">
+    <span class="traco" aria-hidden="true"></span>
+    <a href="mailto:contato@onehub.digital">contato@onehub.digital</a>
+    <a href="https://www.linkedin.com/company/onehubtech" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="local">Rio de Janeiro &middot; Brasil</span>
+  </div>
+</footer>
+
+</body>
+</html>
